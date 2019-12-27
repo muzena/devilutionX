@@ -8,12 +8,28 @@
 
 namespace dvl {
 
+Art dialogArt;
+char dialogText[256];
+Art progressArt;
 Art ArtPopupSm;
 Art ArtProgBG;
 Art ProgFil;
 SDL_Surface *msgSurface;
 SDL_Surface *cancleSurface;
 int textWidth;
+bool endMenu;
+
+void DialogActionCancel()
+{
+	endMenu = true;
+}
+
+UiItem PROGRESS_DIALOG[] = {
+	UiImage(&dialogArt, { 180, 168, 280, 144 }),
+	UiText(dialogText, { 180, 177, 280, 43 }, UIS_CENTER),
+	UiImage(&progressArt, { 205, 220, 228, 38 }),
+	MakeSmlButton("Cancel", &DialogActionCancel, 330, 265),
+};
 
 void progress_Load(char *msg)
 {
@@ -82,7 +98,7 @@ BOOL UiProgressDialog(HWND window, char *msg, int enable, int (*fnfunc)(), int r
 {
 	progress_Load(msg);
 
-	bool endMenu = false;
+	endMenu = false;
 	int progress = 0;
 
 	SDL_Event event;
