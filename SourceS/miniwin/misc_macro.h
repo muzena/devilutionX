@@ -36,6 +36,11 @@
 #define wsprintf wsprintfA
 #define wvsprintf wvsprintfA
 
+#ifdef _MSC_VER
+#define strcasecmp _stricmp
+#define strncasecmp _strnicmp
+#endif
+
 //
 // File I/O
 //
