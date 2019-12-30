@@ -4,8 +4,9 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 export COMPILE_FLAGS="-O0"
-
-export DH_VERBOSE = 1
+include /usr/share/dpkg/architecture.mk
+#DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+#export DH_VERBOSE = 1
 export DEB_BUILD_MAINT_OPTIONS = hardening=-all
 export DEB_CFLAGS_MAINT_APPEND  = -Wno-error 
 export DEB_LDFLAGS_MAINT_APPEND = -Wno-error
