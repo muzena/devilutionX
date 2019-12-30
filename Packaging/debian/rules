@@ -38,6 +38,9 @@ override_dh_auto_configure:
 	-DCMAKE_INSTALL_RUNSTATEDIR=/run \
 	-DCMAKE_LIBRARY_PATH=obj-$(DEB_HOST_MULTIARCH)
 	
+override_dh_auto_build -O--buildsystem=cmake
+	cd obj-$(DEB_HOST_MULTIARCH) && make
+
 override_dh_auto_install:
 	mkdir -p debian/diablo-data/usr/share/games/diablo/
 	test -f "../diabdat.mpq" && cp ../diabdat.mpq debian/diablo-data/usr/share/games/diablo/ || true
