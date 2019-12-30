@@ -25,7 +25,7 @@ export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
 override_dh_auto_configure:
 	#dh_auto_configure -- -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
 	dh_auto_configure --builddirectory=obj-$(DEB_HOST_MULTIARCH)/ -- \
-	#install -d obj-$(DEB_HOST_MULTIARCH) \
+	install -d obj-$(DEB_HOST_MULTIARCH) \
 	#cd obj-$(DEB_HOST_MULTIARCH) && cmake .. \
 	cmake .. \
 	-DCMAKE_INSTALL_PREFIX=/usr \
@@ -39,7 +39,7 @@ override_dh_auto_configure:
 	-DCMAKE_LIBRARY_PATH=obj-$(DEB_HOST_MULTIARCH)
 	
 override_dh_auto_build:
-	cd obj-$(DEB_HOST_MULTIARCH) && ../make
+	cd obj-$(DEB_HOST_MULTIARCH) && make
 
 override_dh_auto_install:
 	mkdir -p debian/diablo-data/usr/share/games/diablo/
