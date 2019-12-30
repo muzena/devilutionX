@@ -36,3 +36,4 @@ override_dh_auto_install:
 	cp Packaging/resources/16.png debian/devilutionx/usr/share/icons/hicolor/16x16/apps/devilutionx.png 
 	cp Packaging/resources/Diablo_32.png debian/devilutionx/usr/share/icons/hicolor/32x32/apps/devilutionx.png 
 	cp Packaging/resources/Diablo_48.png debian/devilutionx/usr/share/icons/hicolor/48x48/apps/devilutionx.png 
+	cp obj-${DEB_HOST_MULTIARCH}/devilutionx debian/devilutionx/usr/share/games/diablo/ 
