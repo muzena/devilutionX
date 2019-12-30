@@ -22,7 +22,7 @@ Description: Diablo build for modern operating systems
 
 Package: diablo-data
 Architecture: all
-Multi-Arch: any
+Multi-Arch: foreign
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
