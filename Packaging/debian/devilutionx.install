@@ -1,4 +1,4 @@
 #! /usr/bin/dh-exec
 Packaging/fedora/devilutionx.desktop usr/share/applications/
-obj-${DEB_HOST_MULTIARCH}/devilutionx usr/share/games/diablo/
+#obj-${DEB_HOST_MULTIARCH}/devilutionx usr/share/games/diablo/
 Packaging/resources/CharisSILB.ttf usr/share/fonts/truetype
