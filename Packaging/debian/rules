@@ -5,7 +5,7 @@
 export DH_VERBOSE=1
 export COMPILE_FLAGS="-O0"
 include /usr/share/dpkg/architecture.mk
-#DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 #export DH_VERBOSE = 1
 export DEB_BUILD_MAINT_OPTIONS = hardening=-all
 export DEB_CFLAGS_MAINT_APPEND  = -Wno-error 
@@ -19,6 +19,12 @@ export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
 #	dh_auto_clean
 #override_dh_auto_configure:
 #	dh_auto_configure -O--buildsystem=cmake -- -DDESTDIR=/usr/games -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_SYSCONFDIR=/etc -DCMAKE_INSTALL_LOCALSTATEDIR=/var
+#override_dh_auto_configure:
+#	dh_auto_configure -- -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH) \
+#		-DCMAKE_BUILD_TYPE=Release -DLIBSHADERTOY_BUILD_DOCUMENTATION=ON
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+	#dh_auto_configure -- -DCMAKE_LIBRARY_PATH=obj-$(DEB_HOST_MULTIARCH)
 
 override_dh_auto_install:
 	mkdir -p debian/diablo-data/usr/share/games/diablo/
