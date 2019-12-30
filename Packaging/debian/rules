@@ -26,7 +26,7 @@ override_dh_auto_configure:
 	#dh_auto_configure -- -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
 	dh_auto_configure --builddirectory=obj-$(DEB_HOST_MULTIARCH)/ -- \
 	--sourcedirectory=../ -- \
-	install -d obj-$(DEB_HOST_MULTIARCH) \
+	#install -d obj-$(DEB_HOST_MULTIARCH) \
 	#cd obj-$(DEB_HOST_MULTIARCH) && cmake .. \
 	cmake .. \
 	-DCMAKE_INSTALL_PREFIX=/usr \
