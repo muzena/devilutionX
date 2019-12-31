@@ -16,7 +16,7 @@ build: build-stamp
 build-stamp:
 
 	# Build process
-  mkdir -p $(APPNAME)
+	mkdir -p $(APPNAME)
 	cd $(APPNAME)
 	# Uncomment line 15 for Precise build
 	#sed -i '15 s/^/# /' ./$(APPNAME)/$(APPNAME).pro
@@ -35,20 +35,20 @@ clean:
 		# Add here commands to clean up after the build process.
 		dh_clean
 
-override_dh_auto_install:
-	mkdir -p debian/diablo-data/usr/share/games/diablo/
-	test -f "../diabdat.mpq" && cp ../diabdat.mpq debian/diablo-data/usr/share/games/diablo/ || true
-	dh_auto_install
-	mkdir -p debian/devilutionx/usr/share/icons/hicolor/16x16/apps/
-	mkdir -p debian/devilutionx/usr/share/icons/hicolor/32x32/apps/
-	mkdir -p debian/devilutionx/usr/share/icons/hicolor/48x48/apps/
-	mkdir -p debian/devilutionx/usr/share/games/diablo/
-	cp Packaging/resources/16.png debian/devilutionx/usr/share/icons/hicolor/16x16/apps/devilutionx.png 
-	cp Packaging/resources/Diablo_32.png debian/devilutionx/usr/share/icons/hicolor/32x32/apps/devilutionx.png 
-	cp Packaging/resources/Diablo_48.png debian/devilutionx/usr/share/icons/hicolor/48x48/apps/devilutionx.png 
-cp obj-${DEB_HOST_MULTIARCH}/devilutionx debian/devilutionx/usr/share/games/diablo/ 
+#override_dh_auto_install:
+#	mkdir -p debian/diablo-data/usr/share/games/diablo/
+#	test -f "../diabdat.mpq" && cp ../diabdat.mpq debian/diablo-data/usr/share/games/diablo/ || true
+#	dh_auto_install
+#	mkdir -p debian/devilutionx/usr/share/icons/hicolor/16x16/apps/
+#	mkdir -p debian/devilutionx/usr/share/icons/hicolor/32x32/apps/
+#	mkdir -p debian/devilutionx/usr/share/icons/hicolor/48x48/apps/
+#	mkdir -p debian/devilutionx/usr/share/games/diablo/
+#	cp Packaging/resources/16.png debian/devilutionx/usr/share/icons/hicolor/16x16/apps/devilutionx.png 
+#	cp Packaging/resources/Diablo_32.png debian/devilutionx/usr/share/icons/hicolor/32x32/apps/devilutionx.png 
+#	cp Packaging/resources/Diablo_48.png debian/devilutionx/usr/share/icons/hicolor/48x48/apps/devilutionx.png 
+#cp obj-${DEB_HOST_MULTIARCH}/devilutionx debian/devilutionx/usr/share/games/diablo/ 
 
-DESTDIR := $(CURDIR)/debian/$(APPNAME)
+#DESTDIR := $(CURDIR)/debian/$(APPNAME)
 
 install: build
 		dh_testdir
@@ -61,7 +61,7 @@ install: build
 		install -pdm755 $(DESTDIR)/usr/share/icons/hicolor/32x32/apps/
 		install -pdm755 $(DESTDIR)/usr/share/icons/hicolor/48x48/apps/
 		install -pdm755 $(DESTDIR)/usr/share/games/diablo/
-    test -f "../diabdat.mpq" && cp ../diabdat.mpq debian/diablo-data/usr/share/games/diablo/ || true
+		test -f "../diabdat.mpq" && cp ../diabdat.mpq debian/diablo-data/usr/share/games/diablo/ || true
 		###  Copy radeon-profile-daemon
 		install -Dm664  $(CURDIR)/$(APPNAME)/devilutionx $(DESTDIR)/usr/share/games/diablo/ 
 		install -Dm664  $(CURDIR)/Packaging/resources/16.png $(DESTDIR)/usr/share/icons/hicolor/16x16/apps/devilutionx.png 
