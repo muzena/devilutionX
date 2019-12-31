@@ -23,7 +23,7 @@ build-stamp:
 	#qmake PREFIX=/usr ./$(APPNAME)/$(APPNAME).pro
 	#qmake -qt=opt-qt59 PREFIX=/usr ./$(APPNAME)/$(APPNAME).pro
 	cmake ..
-  make $(MY_MAKEFLAGS)
+	make $(MY_MAKEFLAGS)
 	# End of build process
 
 	touch build-stamp
@@ -55,7 +55,7 @@ install: build
 		dh_testroot
 		dh_prep
 		dh_installdirs
-    ###  Systemd directories
+		###  Systemd directories
 		install -pdm755 debian/diablo-data/usr/share/games/diablo/
 		install -pdm755 $(DESTDIR)/usr/share/icons/hicolor/16x16/apps/
 		install -pdm755 $(DESTDIR)/usr/share/icons/hicolor/32x32/apps/
