@@ -13,7 +13,7 @@ export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
 #include /usr/share/dpkg/architecture.mk
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
-if [ "${DEB_HOST_MULTIARCH}" == "i386-linux-gnu" ];
+if [ "${DEB_HOST_MULTIARCH}" == "i386-linux-gnu" ]
 	echo "Multiarch is i386"
 	DEB_HOST_MULTIARCH="i686-linux-gnu"
 	echo "$DEB_HOST_MULTIARCH"
