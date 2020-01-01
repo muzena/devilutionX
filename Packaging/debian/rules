@@ -13,6 +13,13 @@ export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
 #include /usr/share/dpkg/architecture.mk
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
+if [ "${DEB_HOST_MULTIARCH}" == "i386-linux-gnu" ]; then
+	echo "Multiarch is i386"
+    DEB_HOST_MULTIARCH="i686-linux-gnu"
+    echo "$DEB_HOST_MULTIARCH"
+
+fi
+
 %:
 	dh $@ --buildsystem=cmake
 
@@ -20,7 +27,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 #	dh_auto_clean
 #override_dh_auto_configure:
 #	dh_auto_configure -O--buildsystem=cmake -- -DDESTDIR=/usr/games -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_SYSCONFDIR=/etc -DCMAKE_INSTALL_LOCALSTATEDIR=/var
-	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DCMAKE_TOOLCHAIN_FILE=../CMake/32bit.cmake ..
+#	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DCMAKE_TOOLCHAIN_FILE=../CMake/32bit.cmake ..
 
 override_dh_auto_install:
 	mkdir -p debian/diablo-data/usr/share/games/diablo/
