@@ -17,7 +17,6 @@ if [ "${DEB_HOST_MULTIARCH}" == "i386-linux-gnu" ]; then
 	echo "Multiarch is i386"
     DEB_HOST_MULTIARCH="i686-linux-gnu"
     echo "$DEB_HOST_MULTIARCH"
-
 fi
 
 %:
