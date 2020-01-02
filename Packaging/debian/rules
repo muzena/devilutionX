@@ -14,8 +14,7 @@ export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 %:
-	dh $@ --buildsystem=cmake
-
+	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 #override_dh_auto_clean:
 #	dh_auto_clean
 #override_dh_auto_configure:
