@@ -30,25 +30,3 @@ override_dh_auto_install:
 	install -Dm664 Packaging/fedora/devilutionx.desktop debian/devilutionx/usr/share/applications/
 	install -Dm664 Packaging/resources/CharisSILB.ttf debian/devilutionx/usr/share/fonts/truetype/
 	install -Dm755 obj-${DEB_HOST_MULTIARCH}/devilutionx debian/devilutionx/usr/share/games/diablo/ 
-
-# Build architecture-independent files here.
-binary-indep: build install
-# We have nothing to do by default.
-	
-# Build architecture-dependent files here.
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_link /usr/share/games/diablo/devilutionx /usr/games/devilutionx
-	dh_compress 
-	dh_fixperms
-	#dh_perl
-	#dh_makeshlibs
-	dh_installdeb
-	#dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
