@@ -17,6 +17,9 @@ override_dh_auto_install:
 	install -pdm755 debian/diablo-data/usr/share/games/diablo/
 	test -f "../diabdat.mpq" && cp ../diabdat.mpq debian/diablo-data/usr/share/games/diablo/ || true
 	dh_auto_install
+	install -pdm755 debian/devilutionx/usr/share/icons/hicolor/48x48/apps/
+	install -pdm755 debian/devilutionx/usr/share/applications/
+	install -pdm755 debian/devilutionx/usr/share/fonts/truetype/
 	install -pdm755 debian/devilutionx/usr/share/icons/hicolor/16x16/apps/
 	install -pdm755 debian/devilutionx/usr/share/icons/hicolor/32x32/apps/
 	install -pdm755 debian/devilutionx/usr/share/icons/hicolor/48x48/apps/
