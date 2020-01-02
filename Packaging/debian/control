@@ -3,7 +3,7 @@ Section: contrib/games
 Priority: optional
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Build-Depends:
- debhelper (>= 9),
+	debhelper (>= 9),
 	cmake,
 	g++,
 	libsdl2-mixer-dev,
