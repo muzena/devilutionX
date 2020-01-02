@@ -2,5 +2,9 @@
 
 Packaging/fedora/devilutionx.desktop usr/share/applications/
 ## Moved to rules file couse refuse substitution ${DEB_HOST_MULTIARCH}
-obj-${DEB_HOST_MULTIARCH}/devilutionx usr/share/games/diablo/ 
 Packaging/resources/CharisSILB.ttf usr/share/fonts/truetype
+Packaging/resources/16.png usr/share/icons/hicolor/16x16/apps/devilutionx.png 
+Packaging/resources/Diablo_32.png usr/share/icons/hicolor/32x32/apps/devilutionx.png 
+Packaging/resources/Diablo_48.png usr/share/icons/hicolor/48x48/apps/devilutionx.png 
+obj-${DEB_HOST_MULTIARCH}/devilutionx usr/share/games/diablo/ 
+
