@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10) # CMP0083 NEW
+cmake_minimum_required(VERSION 2.0) # CMP0083 NEW
 
 include(CMake/out_of_tree.cmake)
 
