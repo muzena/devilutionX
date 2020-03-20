@@ -14,6 +14,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 
 override_dh_auto_configure:
+	./debian/commit-tag.sh
 	dh_auto_configure -- -DNIGHTLY_BUILD=ON #-DSPAWN=ON
 
 #override_dh_auto_configure:
