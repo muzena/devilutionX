@@ -1,0 +1,33 @@
+From 7f64a02e075fabd8e9a76a3bbb7996e9a582e124 Mon Sep 17 00:00:00 2001
+From: muzena <trebelnik2@gmail.com>
+Date: Fri, 20 Mar 2020 22:34:51 +0100
+Subject: [PATCH] Patch git.cmake to fix debian build version
+
+---
+ CMake/git.cmake | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMake/git.cmake b/CMake/git.cmake
+index d205b5bd..de097ddf 100644
+--- a/CMake/git.cmake
++++ b/CMake/git.cmake
+@@ -1,6 +1,6 @@
+ function(get_git_tag output_var)
+   execute_process(
+-    COMMAND git describe --abbrev=0 --tags
++    COMMAND sed q ./debian/tag.txt
+     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+     OUTPUT_VARIABLE GIT_TAG
+     OUTPUT_STRIP_TRAILING_WHITESPACE)
+@@ -9,7 +9,7 @@ endfunction(get_git_tag)
+ 
+ function(get_git_commit_hash output_var)
+   execute_process(
+-    COMMAND git log -1 --format=-%h
++    COMMAND sed q ./debian/commit.txt
+     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+     OUTPUT_VARIABLE GIT_COMMIT_HASH
+     OUTPUT_STRIP_TRAILING_WHITESPACE)
+-- 
+2.17.1
+
