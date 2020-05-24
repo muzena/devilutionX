@@ -5,8 +5,10 @@ Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Build-Depends:
 	debhelper (>= 9),
 	cmake,
+	curl,
 	g++,
 	gettext,
+	jshon,
 	libsdl2-mixer-dev,
 	libsdl2-ttf-dev,
 	libsodium-dev
