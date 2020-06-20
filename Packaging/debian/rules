@@ -7,7 +7,7 @@ export COMPILE_FLAGS="-O0"
 export DEB_BUILD_MAINT_OPTIONS = hardening=-all
 export DEB_CFLAGS_MAINT_APPEND  = -Wno-error 
 export DEB_LDFLAGS_MAINT_APPEND = -Wno-error
-export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
+#export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 #DEB_VERSION_DEVILUTIONX ?= $(shell )
 #DEB_COMMIT_DEVILUTIONX := $(shell curl -s  https://api.github.com/repos/diasurgical/devilutionX/git/refs/heads/master | jshon -e object | jshon -e sha -u | cut -c1-8)
