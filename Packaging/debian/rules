@@ -11,12 +11,13 @@ export CXXFLAGS="-DTTF_FONT_PATH=\"/usr/share/fonts/truetype/CharisSILB.ttf\""
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 #DEB_VERSION_DEVILUTIONX ?= $(shell )
 #DEB_COMMIT_DEVILUTIONX := $(shell curl -s  https://api.github.com/repos/diasurgical/devilutionX/git/refs/heads/master | jshon -e object | jshon -e sha -u | cut -c1-8)
+DEB_COMMIT_DEVILUTIONX := $(shell basename "$PWD" | tail -c 8)
 
 %:
 	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=1.0.1 -DVERSION_SUFFIX=-$(shell basename "$PWD" | tail -c 8) #-DSPAWN=ON
+	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=1.0.1 -DVERSION_SUFFIX=-${DEB_COMMIT_DEVILUTIONX} #-DSPAWN=ON
 
 override_dh_auto_install:
 	install -pdm755 debian/diablo-data/usr/share/games/diablo/
