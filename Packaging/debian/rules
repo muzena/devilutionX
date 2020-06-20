@@ -16,7 +16,7 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=1.0.1 -DVERSION_SUFFIX=-$(shell echo "$PWD" | tail -c 8) #-DSPAWN=ON
+	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=1.0.1 -DVERSION_SUFFIX=-$(shell echo "/<<BUILDDIR>>/devilutionx-1.0.1+git1144-f66339a" | tail -c 8) #-DSPAWN=ON
 
 override_dh_auto_install:
 	install -pdm755 debian/diablo-data/usr/share/games/diablo/
