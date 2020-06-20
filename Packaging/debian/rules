@@ -17,7 +17,7 @@ DEB_COMMIT_DEVILUTIONX := $(shell pwd | tail -c 8)
 	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 
 override_dh_auto_configure:
-	basename "$PWD" | tail -c 8
+	pwd | tail -c 8
 	ls
 	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=1.0.1 -DVERSION_SUFFIX=-${DEB_COMMIT_DEVILUTIONX} #-DSPAWN=ON
 
