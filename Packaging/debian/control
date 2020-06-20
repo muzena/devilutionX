@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Build-Depends:
 	debhelper (>= 9),
+	apt-utils,
 	cmake,
 	curl,
 	git,
