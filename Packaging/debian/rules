@@ -10,14 +10,14 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wno-error
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 #GIT_VERSION_DEVILUTIONX ?= $(shell )
 #GIT_COMMIT_DEVILUTIONX := $(shell curl -s  https://api.github.com/repos/diasurgical/devilutionX/git/refs/heads/master | jshon -e object | jshon -e sha -u | cut -c1-8)
-GIT_VERSION_DEVILUTIONX ?= $(shell pwd | tail -c 5)
+GIT_VERSION_DEVILUTIONX ?= $(shell pwd | tail -c 6)
 #GIT_COMMIT_DEVILUTIONX := $(shell pwd | tail -c 8)
 
 %:
 	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=${GIT_VERSION_DEVILUTIONX}
+	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=1.0.1 #-DVERSION_NUM=${GIT_VERSION_DEVILUTIONX}
 
 override_dh_auto_install:
 	install -pdm755 debian/diablo-data/usr/share/games/diablo/
