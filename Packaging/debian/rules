@@ -18,7 +18,7 @@ DEB_VERSION_DEVILUTIONX ?= $(shell pwd | tail -c 6 | cut -c-5)
 	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=${DEB_VERSION_DEVILUTIONX}
+	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=1.0.1
 
 override_dh_auto_install:
 	install -pdm755 debian/diablo-data/usr/share/games/diablo/
