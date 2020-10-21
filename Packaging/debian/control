@@ -15,12 +15,13 @@ Homepage: https://github.com/diasurgical/devilutionX
 Vcs-Git: git://git@github.com:diasurgical/devilutionX.git
 Vcs-Browser: https://github.com/diasurgical/devilutionX.git
 
-Package: devilutionx
+Package: devilutionx-hellfire
 Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
  devilutionx-data | diablo-data | game-data-packager (>= 40),
+Conflicts: devilutionx
 Description: Diablo build for modern operating systems
  Diablo by Blizzard Entertainment is undoubtedly one of 
  the best games of the 1990s 
@@ -31,7 +32,7 @@ Multi-Arch: foreign
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- devilutionx | diablo,
+ devilutionx-hellfire | diablo,
 Description: Diablo game data
  Copy diabdat.mpq from your CD, or GoG install folder
 
