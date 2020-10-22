@@ -32,7 +32,7 @@ Multi-Arch: foreign
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- devilutionx-hellfire | diablo,
+ devilutionx-hellfire |devilutionx | diablo,
 Description: Diablo game data
  Copy diabdat.mpq from your CD, or GoG install folder
 
