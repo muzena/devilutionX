@@ -16,7 +16,7 @@ GIT_VERSION_DEVILUTIONX ?= $(shell pwd | tail -c 20 | cut -c-5)
 override_dh_auto_configure:
 	dh_auto_configure \
 	-- -DNIGHTLY_BUILD=ON \
-	-DVERSION_NUM=${GIT_VERSION_DEVILUTIONX} \
+	-DVERSION_NUM=${GIT_VERSION_DEVILUTIONX}
 
 override_dh_auto_install:
 	install -pdm755 debian/diablo-data/usr/share/games/diablo/
