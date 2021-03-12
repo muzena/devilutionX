@@ -18,4 +18,4 @@ override_dh_auto_configure:
 	dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=${GIT_VERSION_DEVILUTIONX} -DVERSION_SUFFIX=-${GIT_COMMIT_DEVILUTIONX} #-DSPAWN=ON
 
 override_dh_auto_install:
-	DESTDIR=$$(pwd)/debian/tmp cmake --install .
+	DESTDIR=$$(pwd)/debian cmake --install .
