@@ -33,6 +33,6 @@ override_dh_auto_install:
 	install -Dm664 Packaging/resources/icon.png debian/devilutionx/usr/share/icons/hicolor/512x512/apps/devilutionx.png
 	install -Dm664 Packaging/fedora/devilutionx.desktop debian/devilutionx/usr/share/applications/
 	install -Dm664 Packaging/resources/CharisSILB.ttf debian/devilutionx/usr/share/fonts/truetype/
-	install -Dm664 Packaging/nix/README.txt debian/devilutionx/usr/share/share/diasurgical/devilutionx/
-	install -Dm664 Packaging/resources/devilutionx.mpq debian/devilutionx/usr/share/share/diasurgical/devilutionx/
+	install -Dm664 Packaging/nix/README.txt debian/devilutionx/usr/share/diasurgical/devilutionx/
+	install -Dm664 Packaging/resources/devilutionx.mpq debian/devilutionx/usr/share/diasurgical/devilutionx/
 	install -Dm755 obj-${DEB_HOST_MULTIARCH}/devilutionx debian/devilutionx/usr/share/games/diablo/
