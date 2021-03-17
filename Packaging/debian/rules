@@ -27,6 +27,7 @@ override_dh_auto_install:
 	dh_auto_install
 	install -pdm755 debian/devilutionx/usr/share/icons/hicolor/512x512/apps/
 	install -pdm755 debian/devilutionx/usr/share/applications/
+	install -pdm755 debian/devilutionx/usr/share/diasurgical/
 	install -pdm755 debian/devilutionx/usr/share/diasurgical/devilutionx/
 	install -pdm755 debian/devilutionx/usr/share/fonts/truetype/
 	install -pdm755 debian/devilutionx/usr/share/games/diablo/
