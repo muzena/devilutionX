@@ -14,12 +14,7 @@ GIT_COMMIT_DEVILUTIONX := $(shell pwd | tail -c 8)
 %:
 	dh $@ --buildsystem=cmake --builddirectory=obj-${DEB_HOST_MULTIARCH}
 
-override_dh_auto_configure:
-	dh_auto_configure -- \
-		-DNIGHTLY_BUILD=ON \
-		-DVERSION_NUM=${GIT_VERSION_DEVILUTIONX} \
-		-DVERSION_SUFFIX=-${GIT_COMMIT_DEVILUTIONX} \
-		#-DSPAWN=ON
+dh_auto_configure -- -DNIGHTLY_BUILD=ON -DVERSION_NUM=${GIT_VERSION_DEVILUTIONX} -DVERSION_SUFFIX=-${GIT_COMMIT_DEVILUTIONX} #-DSPAWN=ON
 
 override_dh_auto_install:
 	install -pdm755 debian/diablo-data/usr/share/games/diablo/
