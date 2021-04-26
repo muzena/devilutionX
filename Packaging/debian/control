@@ -11,7 +11,8 @@ Build-Depends:
 	libfmt-dev,
 	libsdl2-mixer-dev,
 	libsdl2-ttf-dev,
-	libsodium-dev
+	libsodium-dev,
+	libzthread-dev
 Standards-Version: 4.3.0
 Homepage: https://github.com/diasurgical/devilutionX
 Vcs-Git: git://git@github.com:diasurgical/devilutionX.git
