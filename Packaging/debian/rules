@@ -19,7 +19,9 @@ override_dh_auto_configure:
 		-DNIGHTLY_BUILD=ON \
 		-DVERSION_NUM=${GIT_VERSION_DEVILUTIONX} \
 		-DVERSION_SUFFIX=-${GIT_COMMIT_DEVILUTIONX} \
-		#-DSPAWN=ON
+		-DFETCHCONTENT_SOURCE_DIR_LIBZT=./libzt
 
 override_dh_auto_install:
+	ls
+	ls ./libzt
 	DESTDIR=$$(pwd)/debian/devilutionx cmake --install ./obj-${DEB_HOST_MULTIARCH}
