@@ -19,8 +19,8 @@ override_dh_auto_configure:
 		-DNIGHTLY_BUILD=ON \
 		-DVERSION_NUM=${GIT_VERSION_DEVILUTIONX} \
 		-DVERSION_SUFFIX=-${GIT_COMMIT_DEVILUTIONX} \
-		-DFETCHCONTENT_SOURCE_DIR_LIBZT=$$(pwd)/libzt \
-		-DFETCHCONTENT_SOURCE_DIR_SDL_AUDIOLIB=$$(pwd)/SDL_audiolib
+		-DFETCHCONTENT_SOURCE_DIR_LIBZT=./libzt \
+		-DFETCHCONTENT_SOURCE_DIR_SDL_AUDIOLIB=./SDL_audiolib
 
 override_dh_auto_install:
 	DESTDIR=$$(pwd)/debian/devilutionx cmake --install ./obj-${DEB_HOST_MULTIARCH}
