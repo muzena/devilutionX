@@ -22,7 +22,7 @@ override_dh_auto_configure:
 		-DFETCHCONTENT_SOURCE_DIR_LIBZT=./libzt \
 		-DFETCHCONTENT_SOURCE_DIR_SDL_AUDIOLIB=./SDL_audiolib \
 		-DFETCHCONTENT_SOURCE_DIR_ASIO=./asio \
-		-DFETCHCONTENT_SOURCE_DIR_ASIO=./simpleini
+		-DFETCHCONTENT_SOURCE_DIR_SIMPLEINI=./simpleini
 
 override_dh_auto_install:
 	DESTDIR=$$(pwd)/debian/devilutionx cmake --install ./obj-${DEB_HOST_MULTIARCH}
